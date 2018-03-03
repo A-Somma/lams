@@ -1,2 +1,2 @@
-# lams
+# LAMS
 Laval Assessement Modelling System
