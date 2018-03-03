@@ -1,15 +1,12 @@
 import pandas
+import random
 
-class Bootstrap():
+def resample_by_group(data, number_of_samples=1, group_identifier=None):
+    print(data)
+    groups = data.groupby(data[group_identifier])
 
-    def __init__(self, data):
-        self.data = data
-        self.groups = data.groupby(data.columns[1])
+    def sample():
+        resampled_groups = [groups.get_group(random.choice(groups.keys)) for times in range(len(groups))]
+        return pandas.concat(resampled_groups)
 
-    def resample(self, number_of_samples):
-        return [self._sample() for times in range(0, number_of_samples)]
-
-    def _sample(self):
-        return pandas.concat([self.groups.get_group(group) for group in self.data[self.data.columns[1]].sample(n = len(self.groups), replace = True)])
-
-
+    return [sample() for times in range(0, number_of_samples)]
