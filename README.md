@@ -1,2 +1,2 @@
 # LAMS
-Laval Assesement Modelling System
+Laval Assessment Modelling System
